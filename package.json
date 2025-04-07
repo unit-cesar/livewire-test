@@ -3,7 +3,10 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "commit": "./gitPushPrBranch.sh",
+        "deploy": "./gitPushPrBranch.sh",
+        "clearDev": "php artisan config:cache && php artisan route:clear && php artisan config:clear && php artisan cache:clear && php artisan view:clear && php artisan optimize"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.0.7",
