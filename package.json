@@ -7,7 +7,7 @@
         "commit": "./gitPushPrBranch.sh",
         "deploy": "./gitPushPrBranch.sh",
         "clearDev": "composer dump-autoload && php artisan config:clear && php artisan config:cache && php artisan route:clear && php artisan cache:clear && php artisan view:clear && php artisan optimize",
-        "testDev": "php artisan config:clear && php artisan test"
+        "testDev": "php artisan config:clear && php artisan test && php artisan optimize"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.0.7",
