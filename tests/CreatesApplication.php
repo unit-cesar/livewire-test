@@ -60,10 +60,14 @@ trait CreatesApplication
         {$blue}🛠  How to fix:{$reset}
         1. Create/configure the file {$bold}.env.testing{$reset} with {$bold}APP_ENV=testing{$reset}.
         2. Set the variables to something like this: {$bold}DB_CONNECTION=sqlite{$reset} and {$bold}DB_DATABASE=:memory:{$reset}
-        3. Try: {$bold}php artisan config:clear && php artisan test && php artisan optimize{$reset}
-        4. With this you will use {$bold}.env.testing{$reset} if exists, or {$bold}phpunit.xml{$reset} settings.
-        5. With {$bold}php artisan optimize{$reset} a new {$bold}bootstrap/cache/config.php{$reset} will be generated.
-        6. For more information see: {$bold}https://laravel.com/docs/testing{$reset}
+        3. Try:
+
+            {$bold}php artisan config:clear && php artisan test && php artisan optimize{$reset}
+            # This means that the {$bold}phpunit.xml{$reset} settings override those of {$bold}.env.testing{$reset}.
+            # To use the {$bold}.env.testing{$reset} settings, comment or delete the line referring to the variable in {$bold}phpunit.xml{$reset}.
+
+        4. With {$bold}php artisan optimize{$reset} a new {$bold}bootstrap/cache/config.php{$reset} will be generated for the environment defined in {$bold}.env{$reset}.
+        5. For more information see: {$bold}https://laravel.com/docs/testing{$reset}
 
 
         {$yellow}⚠️  Tests can only be run in the 'testing' environment in this project.{$reset}
