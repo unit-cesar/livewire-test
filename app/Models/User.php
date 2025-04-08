@@ -54,7 +54,42 @@ class User extends Authenticatable
     {
         return Str::of($this->name)
             ->explode(' ')
-            ->map(fn (string $name) => Str::of($name)->substr(0, 1))
+            ->map(fn(string $name) => Str::of($name)->substr(0, 1))
             ->implode('');
+    }
+
+    /**
+     * Determine if the user is an administrator.
+     *
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * Determine if the user is an editor.
+     *
+     * @return bool
+     */
+    public function isEditor(): bool
+    {
+        return $this->role === 'editor' || $this->isAdmin();
+    }
+
+    /**
+     * Determine if the user is a regular user.
+     *
+     * @return bool
+     */
+    public function isUser(): bool
+    {
+        return $this->role === 'user';
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
