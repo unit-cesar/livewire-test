@@ -131,5 +131,5 @@ php artisan test --filter=PostsTest
 Execute todos testes da aplicação:
 
 ```bash
-php artisan test
+npm run testDev
 ```
